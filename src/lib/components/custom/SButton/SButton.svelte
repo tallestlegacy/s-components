@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button from '../ui/button/button.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
 	import type { Snippet } from 'svelte';
 
 	interface ButtonProps {
@@ -23,7 +23,7 @@
 <Button
 	{...{
 		disabled: props.disabled,
-		class: props.class
+		class: props.class,
 	}}
 >
 	{@render buttonIcon(props.startIcon)}

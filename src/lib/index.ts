@@ -2,6 +2,7 @@
 
 import 'iconify-icon';
 
-import SButton from './components/custom/SButton.svelte';
+import SButton from './components/custom/SButton/SButton.svelte';
+import SEditor from './components/custom/SEditor/SEditor.svelte';
 
-export { SButton };
+export { SButton, SEditor };

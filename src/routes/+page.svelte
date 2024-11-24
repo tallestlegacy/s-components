@@ -1,9 +1,10 @@
-<script lang="ts">
-	import { SButton } from '$lib';
+<script>
+	import SEditor from '$lib/components/custom/SEditor/SEditor.svelte';
+
+	let myText = $state(` # Hello World
+It's me, daniel `);
 </script>
 
-<div class="flex h-screen w-screen items-center justify-center">
-	<SButton startIcon="mdi:account-outline" endIcon="geo:turf-merge" loading>
-		Hello <span></span>
-	</SButton>
+<div class="p-4">
+	<SEditor bind:value={myText} />
 </div>
