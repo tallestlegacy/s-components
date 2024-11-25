@@ -1,10 +1,10 @@
 <script>
 	import SEditor from '$lib/components/custom/SEditor/SEditor.svelte';
+	import SSelect from '$lib/components/custom/SSelect/SSelect.svelte';
 
-	let myText = $state(` # Hello World
-It's me, daniel `);
+	let myText = $state('');
 </script>
 
-<div class="p-4">
+<div class="mx-auto max-w-screen-lg p-4">
 	<SEditor bind:value={myText} />
 </div>

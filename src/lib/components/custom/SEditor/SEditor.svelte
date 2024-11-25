@@ -3,22 +3,24 @@
 
 	// shadcn
 	import { Card } from '$lib/components/ui/card';
+	import SEditorToolBar from './SEditorToolBar.svelte';
 
 	// Extensions
 	import { Editor } from '@tiptap/core';
-	import BulletList from '@tiptap/extension-bullet-list';
-	import ListItem from '@tiptap/extension-list-item';
-	import OrderedList from '@tiptap/extension-ordered-list';
-	import SEditorToolBar from './SEditorToolBar.svelte';
-	import StarterKit from '@tiptap/starter-kit';
 	import { Markdown } from 'tiptap-markdown';
+	import StarterKit from '@tiptap/starter-kit';
+	import Underline from '@tiptap/extension-underline';
+	import Placeholder from '@tiptap/extension-placeholder';
 
 	let element: HTMLDivElement;
 	let editor: Editor | null = $state(null);
 
 	let transactionTracker = $state(Symbol());
 
-	let { value = $bindable('') }: { value?: string } = $props();
+	let {
+		value = $bindable(''),
+		placeholder = 'Write something interesting!',
+	}: { value?: string; placeholder?: string } = $props();
 
 	onMount(() => {
 		editor = new Editor({
@@ -40,11 +42,11 @@
 						levels: [1, 2, 3, 4, 5, 6],
 					},
 				}),
-				// Paragraph, Text,
-				ListItem,
-				BulletList,
-				OrderedList,
 				Markdown,
+				Underline,
+				Placeholder.configure({
+					placeholder,
+				}),
 			],
 		});
 
@@ -65,7 +67,27 @@
 		{#key transactionTracker}
 			<SEditorToolBar {editor} />
 		{/key}
+	{:else}
+		<div class="h-[4rem] bg-muted"></div>
 	{/if}
 
 	<div bind:this={element}></div>
 </Card>
+
+<style>
+	:global(.tiptap p.is-editor-empty:first-child::before) {
+		color: #adb5bd;
+		content: attr(data-placeholder);
+		float: left;
+		height: 0;
+		pointer-events: none;
+	}
+
+	:global(.tiptap p.is-empty::before) {
+		color: #adb5bd;
+		content: attr(data-placeholder);
+		float: left;
+		height: 0;
+		pointer-events: none;
+	}
+</style>

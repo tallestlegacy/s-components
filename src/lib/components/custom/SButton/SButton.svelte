@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Iconify from '@iconify/svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import type { Snippet } from 'svelte';
 
@@ -14,9 +15,9 @@
 	let props: ButtonProps = $props();
 </script>
 
-{#snippet buttonIcon(iconName?: string)}
-	{#if iconName}
-		<iconify-icon icon={iconName}> </iconify-icon>
+{#snippet buttonIcon(icon?: string)}
+	{#if icon}
+		<Iconify {icon} />
 	{/if}
 {/snippet}
 

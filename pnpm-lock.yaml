@@ -17,13 +17,10 @@ importers:
       '@tiptap/core':
         specifier: 2.10.2
         version: 2.10.2(@tiptap/pm@2.10.2)
-      '@tiptap/extension-bullet-list':
+      '@tiptap/extension-placeholder':
         specifier: 2.10.2
-        version: 2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))
-      '@tiptap/extension-list-item':
-        specifier: 2.10.2
-        version: 2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))
-      '@tiptap/extension-ordered-list':
+        version: 2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))(@tiptap/pm@2.10.2)
+      '@tiptap/extension-underline':
         specifier: 2.10.2
         version: 2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))
       '@tiptap/pm':
@@ -32,13 +29,13 @@ importers:
       '@tiptap/starter-kit':
         specifier: 2.10.2
         version: 2.10.2
-      iconify-icon:
-        specifier: 2.1.0
-        version: 2.1.0
       tiptap-markdown:
         specifier: 0.8.10
         version: 0.8.10(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))
     devDependencies:
+      '@iconify/svelte':
+        specifier: 4.0.2
+        version: 4.0.2(svelte@5.2.7)
       '@storybook/addon-essentials':
         specifier: ^8.4.5
         version: 8.4.5(@types/react@18.3.12)(storybook@8.4.5(prettier@3.3.3))
@@ -96,6 +93,9 @@ importers:
       globals:
         specifier: ^15.12.0
         version: 15.12.0
+      husky:
+        specifier: 9.1.7
+        version: 9.1.7
       lucide-svelte:
         specifier: 0.460.1
         version: 0.460.1(svelte@5.2.7)
@@ -527,6 +527,11 @@ packages:
   '@humanwhocodes/retry@0.4.1':
     resolution: {integrity: sha512-c7hNEllBlenFTHBky65mhq8WD2kbN9Q6gk0bTk8lSBvc554jpXSkST1iePudpt7+A/AQvuHs9EMqjHDXMY1lrA==}
     engines: {node: '>=18.18'}
+
+  '@iconify/svelte@4.0.2':
+    resolution: {integrity: sha512-6BSrU85FzGfhQD3bTXpnkCCvBAglEt8T9QednVnXAYm4C+d3464y+pYMzhQNJm5mPId2cuiw+2wXlDflXllHDw==}
+    peerDependencies:
+      svelte: '>4.0.0'
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -1015,6 +1020,12 @@ packages:
     peerDependencies:
       '@tiptap/core': ^2.7.0
 
+  '@tiptap/extension-placeholder@2.10.2':
+    resolution: {integrity: sha512-QWzih69SetWYiylQzHsK29dMR8z1ParfcEw05hy3yyWqXE1DiKEot6rOGV1xenMVEA/SNGYYhQia15Bvco95TA==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+
   '@tiptap/extension-strike@2.10.2':
     resolution: {integrity: sha512-TjrBbO6UbXCt55hV9wRE7h5R/jLTB+z2yn2blz1TfR7wKkX3tJOnb+ptvIHEVFGJOjkZP6Xaj+aAkGVg5dKZYA==}
     peerDependencies:
@@ -1027,6 +1038,11 @@ packages:
 
   '@tiptap/extension-text@2.10.2':
     resolution: {integrity: sha512-7WaJCmHAnf24gZc+Bl64vZgjAFt0CSEc5Jr+f3GII6XeCkZpTCJX85po2MFUhBRZMJheyctyL+UfsRauo/iP0Q==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+
+  '@tiptap/extension-underline@2.10.2':
+    resolution: {integrity: sha512-jDWGqqUYkrLgqRQDyqh+LpbkiqPfaWOoo5bydYL0u80GPEavovxZPoCJ/HDlOfdwm+FIPy55OP/29tELJRptmg==}
     peerDependencies:
       '@tiptap/core': ^2.7.0
 
@@ -1769,8 +1785,10 @@ packages:
   htmlparser2-svelte@4.1.0:
     resolution: {integrity: sha512-+4f4RBFz7Rj2Hp0ZbFbXC+Kzbd6S9PgjiuFtdT76VMNgKogrEZy0pG2UrPycPbrZzVEIM5lAT3lAdkSTCHLPjg==}
 
-  iconify-icon@2.1.0:
-    resolution: {integrity: sha512-lto4XU3bwTQnb+D/CsJ4dWAo0aDe+uPMxEtxyOodw9l7R9QnJUUab3GCehlw2M8mDHdeUu/ufx8PvRQiJphhXg==}
+  husky@9.1.7:
+    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   ignore-walk@5.0.1:
     resolution: {integrity: sha512-yemi4pMf51WKT7khInJqAvsIGzoqYXblnsz0ql8tM+yi1EKYTY1evX4NAbJrLL/Aanr2HyZeluqU+Oi7MGHokw==}
@@ -3126,6 +3144,11 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.1': {}
 
+  '@iconify/svelte@4.0.2(svelte@5.2.7)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      svelte: 5.2.7
+
   '@iconify/types@2.0.0': {}
 
   '@internationalized/date@3.6.0':
@@ -3688,6 +3711,11 @@ snapshots:
     dependencies:
       '@tiptap/core': 2.10.2(@tiptap/pm@2.10.2)
 
+  '@tiptap/extension-placeholder@2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))(@tiptap/pm@2.10.2)':
+    dependencies:
+      '@tiptap/core': 2.10.2(@tiptap/pm@2.10.2)
+      '@tiptap/pm': 2.10.2
+
   '@tiptap/extension-strike@2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))':
     dependencies:
       '@tiptap/core': 2.10.2(@tiptap/pm@2.10.2)
@@ -3697,6 +3725,10 @@ snapshots:
       '@tiptap/core': 2.10.2(@tiptap/pm@2.10.2)
 
   '@tiptap/extension-text@2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))':
+    dependencies:
+      '@tiptap/core': 2.10.2(@tiptap/pm@2.10.2)
+
+  '@tiptap/extension-underline@2.10.2(@tiptap/core@2.10.2(@tiptap/pm@2.10.2))':
     dependencies:
       '@tiptap/core': 2.10.2(@tiptap/pm@2.10.2)
 
@@ -4576,9 +4608,7 @@ snapshots:
       domutils: 2.8.0
       entities: 2.2.0
 
-  iconify-icon@2.1.0:
-    dependencies:
-      '@iconify/types': 2.0.0
+  husky@9.1.7: {}
 
   ignore-walk@5.0.1:
     dependencies:
